@@ -1,0 +1,57 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid $text-01;
+  background-color: $text-02;
+  border-radius: 10px;
+
+  .form {
+    .input-group {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      flex-direction: column;
+
+      .input-box input {
+        margin-top: 5px;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &:focus {
+          background-color: $text-01-background;
+        }
+      }
+    }
+
+    .button-box {
+      text-align: center;
+
+      .submit-button {
+        padding: 5px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        background-color: $text-01;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        @include text-styles(14px, 400, uppercase, $text-02);
+
+        &:hover {
+          color: $text-02-hover;
+          background-color: $text-01-hover;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.app {
+    .content {
+        height: 76vh;
+        background-image: url('assest/images/background-01.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        .content-overlay {
+            height: inherit;
+            background-color: rgba(203, 203, 203, 0.3%);
+        }
+
+        .container {
+            max-width: 1024px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 12%;
+        }
+    }
+}

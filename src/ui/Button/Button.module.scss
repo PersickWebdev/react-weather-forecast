@@ -1,0 +1,18 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  background-color: $text-01;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  @include text-styles(14px, 400, uppercase, $text-02);
+
+  &:hover {
+    color: $text-02-hover;
+    background-color: $text-01-hover;
+  }
+}

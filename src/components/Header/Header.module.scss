@@ -1,0 +1,29 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.header {
+  padding: 20px 0;
+  background-color: $text-02;
+  border-bottom: 2px solid $text-01;
+
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .name-box {
+      .name {
+        @include text-styles(48px, 900, uppercase, $text-01);
+      }
+    }
+
+    .buttons-box {
+      button:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+}

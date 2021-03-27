@@ -1,0 +1,8 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.user-info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

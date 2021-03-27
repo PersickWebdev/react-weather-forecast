@@ -1,0 +1,6 @@
+@mixin text-styles($fs, $fw, $tt, $col) {
+  font-size: $fs;
+  font-weight: $fw;
+  text-transform: $tt;
+  color: $col
+}

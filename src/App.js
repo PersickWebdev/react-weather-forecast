@@ -1,11 +1,31 @@
-import React, {useState} from 'react';
-import style from './App.module.css';
-import Form from "./components/Form/Form";
-import Weather from "./components/Weather/Weather";
+import React, { useEffect, useState } from 'react';
+import styles from './App.module.scss';
+// import Form from "./components/Form/Form";
+// import Weather from "./components/Weather/Weather";
+import { Header, Login } from './components';
+import { useSelector, useDispatch } from 'react-redux';
+// import { useAuth } from './redux/Auth/authDataProcessing';
+import { Footer } from './components';
+import { Profile } from './components';
+import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
 
 const API_KEY = '5fe3099bc9e3ebcf55fe80c518fc08fc';
 
-const App = (props) => {
+const App = () => {
+    const dispatch = useDispatch();
+    const { user, isLogged } = useSelector((state) => state.authData);
+    const [ isOpened, setIsOpened ] = useState(false);
+
+    const profileHandler = () => {
+        setIsOpened(true);
+    }
+
+    const signOutHandler = () => {
+        dispatch(setIsLogged(false));
+        dispatch(setUser({}));
+        setIsOpened(false);
+    }
+
     let [weatherData, setWeatherData] = useState({})
 
     // making a request to get weather data for our city (initially, for Odessa)
@@ -44,9 +64,20 @@ const App = (props) => {
     }
 
     return (
-        <div className={style.application__container}>
-            <Form getWeather={getWeather}/>
-            <Weather weatherData={weatherData}/>
+        <div className={styles['app']}>
+            <Header
+                profileHandler={profileHandler}
+                signOutHandler={signOutHandler}
+            />
+            <div className={styles['content']}>
+                <div className={styles['content-overlay']}>
+                    <div className={styles['container']}>
+                        {!isLogged && <Login />}
+                        {isOpened && <Profile user={user}/>}
+                    </div>
+                </div>
+            </div>
+            <Footer />
         </div>
     );
 }
