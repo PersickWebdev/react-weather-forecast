@@ -1,0 +1,24 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+.profile {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid $text-01;
+  background-color: $text-02;
+  border-radius: 10px;
+
+  .heading {
+    padding: 0 0 10px 0;
+    margin: 0 0 10px 0;
+    text-align: center;
+    border-bottom: 1px solid $text-01;
+    @include text-styles(16px, 600, uppercase, $text-01)
+  }
+
+  .info-box {
+
+  }
+}

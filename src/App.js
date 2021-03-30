@@ -1,79 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './App.module.scss';
-// import Form from "./components/Form/Form";
-// import Weather from "./components/Weather/Weather";
-import { Header, Login } from './components';
-import { useSelector, useDispatch } from 'react-redux';
-// import { useAuth } from './redux/Auth/authDataProcessing';
-import { Footer } from './components';
-import { Profile } from './components';
+import { Header, Footer } from './components';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRoutes } from './routes/routes';
 import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
 
-const API_KEY = '5fe3099bc9e3ebcf55fe80c518fc08fc';
+// TODO: Create 'Forecast Page'.
+// TODO: Delete 'Form' from 'Components' folder.
+// TODO: Create 'Forecast Result' component.
+// TODO: Style all existing components.
 
 const App = () => {
     const dispatch = useDispatch();
+    const { generateRoutes } = useRoutes();
     const { user, isLogged } = useSelector((state) => state.authData);
-    const [ isOpened, setIsOpened ] = useState(false);
-
-    const profileHandler = () => {
-        setIsOpened(true);
-    }
+    const routes = generateRoutes(isLogged, user);
 
     const signOutHandler = () => {
         dispatch(setIsLogged(false));
         dispatch(setUser({}));
-        setIsOpened(false);
     }
-
-    let [weatherData, setWeatherData] = useState({})
-
-    // making a request to get weather data for our city (initially, for Odessa)
-    const getWeather = async (event) => {
-        event.preventDefault();
-        // event.target - form, elements - form's elements, city - form's input name
-        // city - dynamical variable used in url address in fetch, which value is based on the form's input value
-        const city = event.target.elements.city.value;
-        const apiUrl = await
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
-        const data = await apiUrl.json();
-        console.log(data)
-
-        // if user hasn't entered any city, no processing needed
-        if (city) {
-            setWeatherData({
-                country: data.sys.country,
-                city: data.name,
-                temp: data.main.temp,
-                tempMin: data.main.temp_min,
-                tempMax: data.main.temp_max,
-                wind: data.wind.speed,
-                error: ''
-            })
-        } else {
-            setWeatherData({
-                country: null,
-                city: null,
-                temp: null,
-                tempMin: null,
-                tempMax: null,
-                wind: null,
-                error: 'ENTER THE CITY'
-            })
-        }
-    }
+    // const city = event.target.elements.city.value;
 
     return (
         <div className={styles['app']}>
             <Header
-                profileHandler={profileHandler}
                 signOutHandler={signOutHandler}
             />
             <div className={styles['content']}>
                 <div className={styles['content-overlay']}>
                     <div className={styles['container']}>
-                        {!isLogged && <Login />}
-                        {isOpened && <Profile user={user}/>}
+                        {routes}
                     </div>
                 </div>
             </div>

@@ -3,7 +3,7 @@ import { setUser, setError, setIsLogged } from './authActionCreators';
 
 const authEndpoints = {
     fetchUsers: 'http://localhost:5000/users'
-}
+};
 
 export const useAuth = () => {
 
@@ -19,7 +19,7 @@ export const useAuth = () => {
         usersArray.forEach(user => {
             if (user.email === formData.email && user.password === formData.password) {
                 candidate = user;
-                return
+                return;
             }
         });
         if (Object.keys(candidate).length > 0) {

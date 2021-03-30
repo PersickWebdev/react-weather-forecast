@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Header.module.scss';
-import { Button } from '../../ui';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { Button } from '../../ui';
 
-const Header = ({ profileHandler, signOutHandler }) => {
-    const { user, isLogged } = useSelector((state) => state.authData);
+const Header = ({ profileHandler, signOutHandler, forecastHandler }) => {
+    const { isLogged } = useSelector((state) => state.authData);
 
     return (
         <header className={styles['header']}>
@@ -14,20 +15,18 @@ const Header = ({ profileHandler, signOutHandler }) => {
                 </div>
                 {isLogged
                     ? <div className={styles['buttons-box']}>
-                        <Button
-                            name='Profile'
-                            action={profileHandler}
-                        />
+                        <Button>
+                            <NavLink to='/forecast'>Forecast</NavLink>
+                        </Button>
+                        <Button>
+                            <NavLink to='/profile'>Profile</NavLink>
+                        </Button>
                         <Button
                             name='Sign Out'
                             action={signOutHandler}
                         />
                       </div>
                     : <div className={styles['buttons-box']}>
-                        <Button
-                            name='Sign In'
-                            action={(event) => console.log(event.target.name)}
-                        />
                         <Button
                             name='Sign Up'
                             action={(event) => console.log(event.target.name)}

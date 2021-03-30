@@ -1,17 +1,19 @@
 import React from 'react';
-import styles from './Profile.module.scss';
+import styles from './ProfilePage.module.scss';
 import { UserInfoItem } from '../../components';
+import { useUtils } from '../../utils/useUtils';
 
-const Profile = ({ user }) => {
+const ProfilePage = ({ user }) => {
+    const { convertCamelCase } = useUtils();
     const userInfoItems = Object.keys(user).map(key => {
         return (
             <UserInfoItem
                 key={`${user.id}_${user[key]}`}
-                name={key}
+                name={convertCamelCase(key)}
                 value={user[key]}
             />
         )
-    })
+    });
 
     return (
         <div className={styles['profile']}>
@@ -23,4 +25,4 @@ const Profile = ({ user }) => {
     );
 };
 
-export default Profile;
+export default ProfilePage;

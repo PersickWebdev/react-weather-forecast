@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Login.module.scss';
+import styles from './LoginPage.module.scss';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../redux/Auth/authDataProcessing';
 import { useDispatch } from 'react-redux';
 
-const Login = () => {
+const LoginPage = () => {
     const dispatch = useDispatch();
     const { checkUser } = useAuth();
     const { register, handleSubmit, errors } = useForm();
@@ -58,4 +58,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default LoginPage;

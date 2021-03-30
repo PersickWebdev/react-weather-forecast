@@ -1,0 +1,49 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.search-form {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid $text-01;
+  background-color: $text-02;
+  border-radius: 10px;
+
+  .form {
+    .input-group {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+
+      .input {
+        width: 100%;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        transition: all 0.3s ease;
+
+        &:focus {
+          background-color: $text-01-background;
+        }
+      }
+
+      .submit-button {
+        padding: 2px 12px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background-color: $text-01;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        @include text-styles(14px, 400, uppercase, $text-02);
+
+        &:hover {
+          color: $text-02-hover;
+          background-color: $text-01-hover;
+        }
+      }
+    }
+  }
+}
