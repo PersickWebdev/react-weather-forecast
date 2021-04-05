@@ -24,6 +24,16 @@
       button:first-child {
         margin-right: 20px;
       }
+
+      button .link {
+        display: block;
+        color: $text-02;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        &:hover {
+          color: $text-02-hover;
+        }
+      }
     }
   }
 }

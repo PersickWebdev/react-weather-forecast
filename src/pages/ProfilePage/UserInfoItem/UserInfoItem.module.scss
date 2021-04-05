@@ -2,8 +2,10 @@
 @import '../../../scss/mixins';
 
 .user-info-item {
+  margin-bottom: 5px;
+  padding: 4px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
+  border-bottom: 1px dashed $text-01
 }

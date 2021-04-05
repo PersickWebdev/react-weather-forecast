@@ -7,6 +7,7 @@ const Button = (props) => {
             className={styles['button']}
             onClick={props.action}
             name={props.name}
+            type={props.type}
         >
             {props.children}
             {props.name}

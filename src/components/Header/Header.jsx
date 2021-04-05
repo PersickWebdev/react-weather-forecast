@@ -16,10 +16,20 @@ const Header = ({ profileHandler, signOutHandler, forecastHandler }) => {
                 {isLogged
                     ? <div className={styles['buttons-box']}>
                         <Button>
-                            <NavLink to='/forecast'>Forecast</NavLink>
+                            <NavLink
+                                className={styles['link']}
+                                to='/forecast'
+                            >
+                                Forecast
+                            </NavLink>
                         </Button>
                         <Button>
-                            <NavLink to='/profile'>Profile</NavLink>
+                            <NavLink
+                                className={styles['link']}
+                                to='/profile'
+                            >
+                                Profile
+                            </NavLink>
                         </Button>
                         <Button
                             name='Sign Out'

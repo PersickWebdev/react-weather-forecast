@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRoutes } from './routes/routes';
 import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
 
-// TODO: Create 'Forecast Page'.
-// TODO: Delete 'Form' from 'Components' folder.
-// TODO: Create 'Forecast Result' component.
-// TODO: Style all existing components.
+// TODO: Style 'EditProfileForm' component.
 
 const App = () => {
     const dispatch = useDispatch();
