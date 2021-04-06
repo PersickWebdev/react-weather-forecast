@@ -17,6 +17,7 @@ const ProfilePage = ({ user }) => {
             />
         )
     });
+
     const editProfileHandler = () => {
         setIsOpened(true);
     }
@@ -27,6 +28,7 @@ const ProfilePage = ({ user }) => {
                 ?
                 <EditProfileForm
                     user={user}
+                    setIsOpened={setIsOpened}
                 />
                 :
                 <>

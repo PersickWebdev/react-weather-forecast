@@ -1,26 +1,31 @@
 import React, { useState } from 'react';
 import styles from './EditProfileForm.module.scss';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Button } from '../../../ui';
+import { useAuth } from '../../../redux/Auth/authDataProcessing';
 
-const EditProfileForm = ({ user }) => {
+const EditProfileForm = ({ user, setIsOpened }) => {
+    const dispatch = useDispatch();
+    const { editUser } = useAuth();
     const { register, handleSubmit, errors } = useForm();
     const [ defaultValue, setDefaultValue ] = useState({
         firstName: user.firstName,
         secondName: user.secondName,
         age: user.age,
         email: user.email,
+        password: user.password
     });
 
     const onChangeHandler = (event) => {
         setDefaultValue({
-            ...defaultValue,
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
         })
     }
 
     const onSubmit = (defaultValue) => {
-        console.log(defaultValue)
+        editUser(user.id, defaultValue, dispatch);
+        setIsOpened(false);
     }
 
     return (
@@ -72,7 +77,26 @@ const EditProfileForm = ({ user }) => {
                         />
                     </div>
                 </div>
+                <div className={styles['input-group']}>
+                    <div className={styles['label-wrap']}>
+                        <label htmlFor="age">Email:</label>
+                    </div>
+                    <div className={styles['input-wrap']}>
+                        <input type="text"
+                               name='email'
+                               ref={register}
+                               className={styles['input']}
+                               value={defaultValue.email}
+                               onChange={(event) => onChangeHandler(event)}
+                        />
+                    </div>
+                </div>
                 <div className={styles['button-box']}>
+                    <Button
+                        type='button'
+                        name='Back'
+                        action={() => setIsOpened(false)}
+                    />
                     <Button
                         type='submit'
                         name='Confirm'

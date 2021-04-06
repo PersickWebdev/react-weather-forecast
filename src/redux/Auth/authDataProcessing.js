@@ -2,7 +2,8 @@ import axios from 'axios';
 import { setUser, setError, setIsLogged } from './authActionCreators';
 
 const authEndpoints = {
-    fetchUsers: 'http://localhost:5000/users'
+    fetchUsers: 'http://localhost:5000/users',
+    editUser: (id) => `http://localhost:5000/users/${id}/`
 };
 
 export const useAuth = () => {
@@ -33,5 +34,10 @@ export const useAuth = () => {
         }
     };
 
-    return { fetchUsers, checkUser }
+    const editUser = async (userId, formData, dispatch) => {
+        const result = await axios.patch(authEndpoints.editUser(userId), formData);
+        dispatch(setUser(result.data));
+    }
+
+    return { fetchUsers, checkUser, editUser }
 };

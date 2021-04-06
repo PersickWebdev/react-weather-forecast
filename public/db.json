@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "id": 1,
-      "email": "test01@gmail.com",
-      "password": "test12345",
-      "firstName": "Jane",
+      "firstName": "Marry",
       "secondName": "Harrison",
-      "age": 25
+      "age": "20",
+      "email": "test01@gmail.com",
+      "password": "12345",
+      "id": 1
     }
   ]
 }
