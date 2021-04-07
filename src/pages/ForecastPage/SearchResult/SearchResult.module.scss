@@ -1,0 +1,43 @@
+@import '../../../scss/colors';
+@import '../../../scss/mixins';
+
+.result {
+  padding: 20px;
+  border: 1px solid $text-01;
+  border-radius: 10px;
+
+  .result__location {
+    .location__section {
+      text-align: center;
+      margin-bottom: 5px;
+
+      .location__city {
+        @include text-styles(15px, 600, uppercase, $text-01)
+      }
+
+      .location__country {
+        @include text-styles(18px, 600, uppercase, $text-01)
+      }
+    }
+  }
+
+  .result__conditions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .condition__item {
+      border: 1px solid $text-01;
+      border-radius: 10px;
+      background-color: $text-01-background;
+    }
+
+    .condition__item:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    .condition__item img {
+      width: 40px;
+    }
+  }
+}

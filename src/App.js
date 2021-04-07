@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRoutes } from './routes/routes';
 import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
 
-// TODO: Style 'EditProfileForm' component.
+// TODO: Implement 'SearchResult' component.
 
 const App = () => {
     const dispatch = useDispatch();

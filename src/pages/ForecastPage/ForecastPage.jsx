@@ -1,12 +1,13 @@
 import React from 'react';
 import styles from './ForecastPage.module.scss';
-import { SearchForm } from '../../pages';
+import { SearchForm, SearchResult } from '../../pages';
 
 const ForecastPage = () => {
     return (
         <div className={styles['forecast']}>
             <h2 className={styles['heading']}>Forecast</h2>
-            <SearchForm/>
+            <SearchForm />
+            <SearchResult />
         </div>
     );
 };

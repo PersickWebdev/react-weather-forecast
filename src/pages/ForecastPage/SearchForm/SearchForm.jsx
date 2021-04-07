@@ -10,7 +10,6 @@ const SearchForm = () => {
     const { register, handleSubmit, errors } = useForm();
 
     const onSubmit = (data) => {
-        console.log('Search Form Data: ', data);
         fetchWeather(data.city, dispatch);
     }
 
