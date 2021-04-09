@@ -6,6 +6,8 @@ import { useRoutes } from './routes/routes';
 import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
 
 // TODO: Implement 'SearchResult' component.
+// TODO: Add 'isRain' condition.
+// TODO: Implement theme switching depending on the temperature.
 
 const App = () => {
     const dispatch = useDispatch();

@@ -21,23 +21,64 @@
     }
   }
 
-  .result__conditions {
+  .result__temperature-box {
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .condition__item {
-      border: 1px solid $text-01;
-      border-radius: 10px;
-      background-color: $text-01-background;
+    .temperature__item {
+      @include text-styles(24px, 600, none, $text-01)
+    }
+  }
+
+  .result__conditions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    .result__description-box {
+      text-align: center;
     }
 
-    .condition__item:not(:last-child) {
-      margin-right: 10px;
-    }
+    .condition__items-box {
+      display: flex;
+      justify-content: center;
 
-    .condition__item img {
-      width: 40px;
+      .condition__item {
+        padding: 10px;
+        border: 1px solid $text-01;
+        border-radius: 20px;
+        background-color: $text-01-background;
+      }
+
+      .condition__item:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .condition__item {
+        text-align: center;
+        .item__image-box {
+          .item__image {
+            width: 40px;
+          }
+        }
+
+        .item__value-box {
+          text-align: center;
+          .value__text {
+            text-align: center;
+            font-weight: bold;
+            display: block;
+          }
+          .value__units {
+            text-align: center;
+            font-size: 10px;
+            display: block;
+          }
+        }
+      }
     }
   }
 }

@@ -21,10 +21,9 @@
     }
 
     .buttons-box {
-      button:first-child {
-        margin-right: 20px;
+      button:not(:last-child) {
+        margin-right: 10px;
       }
-
       button .link {
         display: block;
         color: $text-02;
