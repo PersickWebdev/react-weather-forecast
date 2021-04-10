@@ -1,27 +1,15 @@
 import React from 'react';
 import styles from './SearchResult.module.scss';
-import { useSelector } from 'react-redux';
-
-import iconCloudy from '../../../assest/images/icon-cloudy.png';
-import iconWindy from '../../../assest/images/iconWind.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { icons } from '../../../utils/constants';
 
 const SearchResult = () => {
+    const dispatch = useDispatch();
     const { weather } = useSelector((state) => state.weatherData);
     const isWeather = !!Object.keys(weather).length;
     const isCloudy = weather.clouds?.all > 0;
     const isWindy = weather.wind?.speed > 0;
     const isRainy = Object.keys(weather).some(item => item === 'rain');
-    const temperature = Math.round(weather.main?.temp);
-    console.log('isRainy: ', isRainy)
-
-    const defineTemperature = (temperature) => {
-        if (temperature <= 10) return 'isCold';
-        if (temperature > 10 && temperature <= 25) return 'isWarm';
-        if (temperature > 25) return 'isHot';
-    }
-
-    const temp = defineTemperature(temperature);
-    console.log(temp)
 
     return (
         <div className={styles['result']}>
@@ -50,7 +38,7 @@ const SearchResult = () => {
                     {isCloudy &&
                     <div className={styles['condition__item']}>
                         <div className={styles['item__image-box']}>
-                            <img className={styles['item__image']} src={iconCloudy} alt="icon-cloudy"/>
+                            <img className={styles['item__image']} src={icons.cloudy} alt="icon-cloudy"/>
                         </div>
                         <div className={styles['item__value-box']}>
                             <span className={styles['item__value']}>&nbsp;</span>
@@ -60,11 +48,21 @@ const SearchResult = () => {
                     {isWindy &&
                     <div className={styles['condition__item']}>
                         <div className={styles['item__image-box']}>
-                            <img className={styles['item__image']} src={iconWindy} alt="icon-windy"/>
+                            <img className={styles['item__image']} src={icons.windy} alt="icon-windy"/>
                         </div>
                         <div className={styles['item__value-box']}>
                             <span className={styles['value__text']}>{weather.wind?.speed} </span>
                             <span className={styles['value__units']}>m/sec</span>
+                        </div>
+                    </div>
+                    }
+                    {isRainy &&
+                    <div className={styles['condition__item']}>
+                        <div className={styles['item__image-box']}>
+                            <img className={styles['item__image']} src={icons.rainy} alt="icon-rainy"/>
+                        </div>
+                        <div className={styles['item__value-box']}>
+                            <span className={styles['item__value']}>&nbsp;</span>
                         </div>
                     </div>
                     }

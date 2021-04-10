@@ -5,8 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useRoutes } from './routes/routes';
 import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
 
-// TODO: Implement 'SearchResult' component.
-// TODO: Add 'isRain' condition.
 // TODO: Implement theme switching depending on the temperature.
 
 const App = () => {
@@ -19,7 +17,6 @@ const App = () => {
         dispatch(setIsLogged(false));
         dispatch(setUser({}));
     }
-    // const city = event.target.elements.city.value;
 
     return (
         <div className={styles['app']}>

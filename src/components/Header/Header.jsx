@@ -6,9 +6,15 @@ import { Button } from '../../ui';
 
 const Header = ({ profileHandler, signOutHandler, forecastHandler }) => {
     const { isLogged } = useSelector((state) => state.authData);
+    const { temperature } = useSelector((state) => state.weatherData);
 
     return (
-        <header className={styles['header']}>
+        <header className={`
+            ${styles['header']} 
+            ${temperature === 'isCold' ? styles['header-cold'] : ''}
+            ${temperature === 'isWarm' ? styles['header-warm'] : ''}
+            ${temperature === 'isHot' ? styles['header-hot'] : ''}
+        `}>
             <div className={styles['container']}>
                 <div className={styles['name-box']}>
                     <span className={styles['name']}>Weather Forecast</span>
@@ -34,6 +40,7 @@ const Header = ({ profileHandler, signOutHandler, forecastHandler }) => {
                         <Button
                             name='Sign Out'
                             action={signOutHandler}
+                            temperature={temperature}
                         />
                       </div>
                     : <div className={styles['buttons-box']}>

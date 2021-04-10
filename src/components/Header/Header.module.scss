@@ -5,6 +5,7 @@
   padding: 20px 0;
   background-color: $text-02;
   border-bottom: 2px solid $text-01;
+  transition: all 0.5s ease;
 
   .container {
     max-width: 1024px;
@@ -34,5 +35,30 @@
         }
       }
     }
+  }
+}
+
+.header-cold {
+  background-color: $background-cold;
+  .container {
+    .buttons-box {
+      button .link {
+        color: $background-cold;
+      }
+    }
+  }
+}
+
+.header-warm {
+  background-color: $background-warm;
+  .container {
+
+  }
+}
+
+.header-hot {
+  background-color: $background-hot;
+  .container {
+
   }
 }
