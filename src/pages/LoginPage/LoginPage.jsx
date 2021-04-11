@@ -2,19 +2,25 @@ import React from 'react';
 import styles from './LoginPage.module.scss';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../redux/Auth/authDataProcessing';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const LoginPage = () => {
     const dispatch = useDispatch();
     const { checkUser } = useAuth();
     const { register, handleSubmit, errors } = useForm();
+    const { temperature } = useSelector((state) => state.weatherData);
 
     const onSubmit = (data) => {
         checkUser(data, dispatch);
     };
 
     return (
-        <div className={styles['login']}>
+        <div className={`
+            ${styles['login']} 
+            ${temperature === 'isCold' ? styles['login-cold'] : ''}
+            ${temperature === 'isWarm' ? styles['login-warm'] : ''}
+            ${temperature === 'isHot' ? styles['login-hot'] : ''}
+        `}>
             <form
                 className={styles['form']}
                 onSubmit={handleSubmit(onSubmit)}

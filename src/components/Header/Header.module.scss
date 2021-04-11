@@ -52,13 +52,21 @@
 .header-warm {
   background-color: $background-warm;
   .container {
-
+    .buttons-box {
+      button .link {
+        color: $background-warm;
+      }
+    }
   }
 }
 
 .header-hot {
   background-color: $background-hot;
   .container {
-
+    .buttons-box {
+      button .link {
+        color: $background-hot;
+      }
+    }
   }
 }

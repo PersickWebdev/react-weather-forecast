@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './EditProfileForm.module.scss';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '../../../ui';
 import { useAuth } from '../../../redux/Auth/authDataProcessing';
 
@@ -9,6 +9,7 @@ const EditProfileForm = ({ user, setIsOpened }) => {
     const dispatch = useDispatch();
     const { editUser } = useAuth();
     const { register, handleSubmit, errors } = useForm();
+    const { temperature } = useSelector((state) => state.weatherData);
     const [ defaultValue, setDefaultValue ] = useState({
         firstName: user.firstName,
         secondName: user.secondName,
@@ -29,7 +30,12 @@ const EditProfileForm = ({ user, setIsOpened }) => {
     }
 
     return (
-        <div className={styles['edit']}>
+        <div className={`
+            ${styles['edit']} 
+            ${temperature === 'isCold' ? styles['edit-cold'] : ''}
+            ${temperature === 'isWarm' ? styles['edit-warm'] : ''}
+            ${temperature === 'isHot' ? styles['edit-hot'] : ''}
+        `}>
             <h3 className={styles['edit__heading']}>Edit form</h3>
             <form
                 className={styles['form']}

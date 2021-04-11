@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ProfilePage.module.scss';
+import { useSelector } from 'react-redux';
 import { UserInfoItem } from '../../components';
 import { Button } from '../../ui';
 import { useUtils } from '../../utils/useUtils';
@@ -8,6 +9,7 @@ import { EditProfileForm } from '../../pages';
 const ProfilePage = ({ user }) => {
     const { convertCamelCase } = useUtils();
     const [ isOpened, setIsOpened ] = useState(false);
+    const { temperature } = useSelector((state) => state.weatherData);
     const userInfoItems = Object.keys(user).map(key => {
         return (
             <UserInfoItem
@@ -23,7 +25,12 @@ const ProfilePage = ({ user }) => {
     }
 
     return (
-        <div className={styles['profile']}>
+        <div className={`
+            ${styles['profile']} 
+            ${temperature === 'isCold' ? styles['profile-cold'] : ''}
+            ${temperature === 'isWarm' ? styles['profile-warm'] : ''}
+            ${temperature === 'isHot' ? styles['profile-hot'] : ''}
+        `}>
             {isOpened
                 ?
                 <EditProfileForm

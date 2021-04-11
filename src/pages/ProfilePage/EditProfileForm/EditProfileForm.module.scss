@@ -30,3 +30,27 @@
     }
   }
 }
+
+.edit-cold {
+  .form {
+    .button-box button {
+      color: $background-cold;
+    }
+  }
+}
+
+.edit-warm {
+  .form {
+    .button-box button {
+      color: $background-warm;
+    }
+  }
+}
+
+.edit-hot {
+  .form {
+    .button-box button {
+      color: $background-hot;
+    }
+  }
+}

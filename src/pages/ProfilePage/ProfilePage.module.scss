@@ -27,3 +27,24 @@
     text-align: center;
   }
 }
+
+.profile-cold {
+  background-color: $background-cold;
+  .button-box button {
+    color: $background-cold;
+  }
+}
+
+.profile-warm {
+  background-color: $background-warm;
+  .button-box button {
+    color: $background-warm;
+  }
+}
+
+.profile-hot {
+  background-color: $background-hot;
+  .button-box button {
+    color: $background-hot;
+  }
+}
