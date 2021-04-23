@@ -1,0 +1,20 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+// 1920
+// 1440
+// 1024
+// 768
+// 576
+// 375
+// 320
+
+.searchbar {
+  padding: 10px;
+  color: $white;
+  background-color: $background;
+
+  .container {
+    @include container(1024px, 100%, 0 auto, 0 10px, flex, center, center);
+  }
+}

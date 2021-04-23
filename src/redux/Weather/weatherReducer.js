@@ -1,8 +1,7 @@
 import { weatherTypes } from './weatherActionTypes';
 
 const initialState = {
-    weather: {},
-    temperature: 'isNeutral'
+    weather: {}
 };
 
 export const weatherReducer = (state = initialState, action) => {
@@ -11,11 +10,6 @@ export const weatherReducer = (state = initialState, action) => {
             return {
                 ...state,
                 weather: action.payload
-            }
-        case weatherTypes.setTemperature:
-            return {
-                ...state,
-                temperature: action.payload
             }
         default:
             return state;

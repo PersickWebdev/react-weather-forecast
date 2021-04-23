@@ -5,11 +5,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { authReducer } from './Auth/authReducer';
+import { timeReducer } from './Time/timeReducer';
 import { weatherReducer } from './Weather/weatherReducer';
 
 const reducers = combineReducers({
-    authData: authReducer,
+    timeData: timeReducer,
     weatherData: weatherReducer
 });
 

@@ -6,10 +6,3 @@ export const setWeather = (object) => {
         payload: object
     };
 };
-
-export const setTemperature = (number) => {
-    return {
-        type: weatherTypes.setTemperature,
-        payload: number
-    };
-};

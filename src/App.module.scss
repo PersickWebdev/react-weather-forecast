@@ -1,47 +1,54 @@
 @import './scss/colors';
 @import './scss/mixins';
+
+// 1920
+// 1440
+// 1024
+// 768
+// 576
+// 375
+// 320
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.background__day {
+  background-image: url("assest/images/main-background-day.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.background__night {
+  background-image: url("assest/images/main-background-night.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
 .app {
-    .content {
-        background-image: url('assest/images/background-01.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        .content-overlay {
-            height: inherit;
-            background-color: rgba(203, 203, 203, 0.3%);
-        }
-
-        .container {
-            height: 76vh;
-            max-width: 1024px;
-            width: 100%;
-            margin: 0 auto;
-            padding-top: 50px;
-        }
-    }
+  .main {
+    height: calc(100vh - 75px);
+  }
 }
 
-.app-cold {
-    .content {
-        .content-overlay {
-            background-color: rgba(75, 186, 210, 0.3%);
-        }
+@media (max-width: 426px) {
+  .app {
+    .main {
+      height: calc(100vh - 68px);
     }
+  }
 }
 
-.app-warm {
-    .content {
-        .content-overlay {
-            background-color: rgba(217, 200, 46, 0.3%)
-        }
+@media (max-width: 426px) {
+  .app {
+    .main {
+      height: calc(100vh - 63px);
     }
-}
-
-.app-hot {
-    .content {
-        .content-overlay {
-            background-color: rgba(254, 155, 38, 0.3%)
-        }
-    }
+  }
 }

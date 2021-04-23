@@ -1,44 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './App.module.scss';
-import { Header, Footer } from './components';
 import { useDispatch, useSelector } from 'react-redux';
-import { useRoutes } from './routes/routes';
-import { setIsLogged, setUser } from './redux/Auth/authActionCreators';
-
-// TODO: Implement responsive layout.
+import { useTime } from './data/timeDataProcessing';
+import { Header, SearchBar, Weather } from './components';
 
 const App = () => {
     const dispatch = useDispatch();
-    const { generateRoutes } = useRoutes();
-    const { user, isLogged } = useSelector((state) => state.authData);
-    const { temperature } = useSelector((state) => state.weatherData);
-    const routes = generateRoutes(isLogged, user);
+    const { setCurrentDayPart } = useTime();
+    const { dayPart } = useSelector((state) => state.timeData);
+    const { weather } = useSelector((state) => state.weatherData);
+    const isWeather = !!Object.keys(weather).length;
 
-    const signOutHandler = () => {
-        dispatch(setIsLogged(false));
-        dispatch(setUser({}));
-    }
+    useEffect(() => {
+        setCurrentDayPart(dispatch);
+    }, []);
 
     return (
-        <div className={`
-                ${styles['app']} 
-                ${temperature === 'isCold' ? styles['app-cold'] : ''}
-                ${temperature === 'isWarm' ? styles['app-warm'] : ''}
-                ${temperature === 'isHot' ? styles['app-hot'] : ''}
-        `}>
-            <Header
-                signOutHandler={signOutHandler}
-            />
-            <div className={styles['content']}>
-                <div className={styles['content-overlay']}>
-                    <div className={styles['container']}>
-                        {routes}
-                    </div>
-                </div>
-            </div>
-            <Footer />
+        <div className={`${styles['app']} ${dayPart === 'isDay' ? styles['background__day'] : styles['background__night']}`}>
+            <Header/>
+            <main className={styles['main']}>
+                <SearchBar/>
+                {isWeather &&
+                    <Weather
+                        weather={weather}
+                        dayPart={dayPart}
+                    />
+                }
+            </main>
         </div>
     );
-}
+};
 
 export default App;

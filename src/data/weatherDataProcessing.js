@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {setTemperature, setWeather} from './weatherActionCreators';
+import { setWeather } from '../redux/Weather/weatherActionCreators';
 
 const API_KEY = '5fe3099bc9e3ebcf55fe80c518fc08fc';
 
@@ -19,7 +19,6 @@ export const useWeather = () => {
         };
         const temp = defineTemperature(temperature);
         dispatch(setWeather(weather));
-        dispatch(setTemperature(temp));
     }
 
     return { fetchWeather }

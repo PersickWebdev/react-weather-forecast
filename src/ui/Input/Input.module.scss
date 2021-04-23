@@ -9,19 +9,16 @@
 // 375
 // 320
 
-.button__container {
-  .button {
+.input__container {
+  max-width: 300px;
+  width: 100%;
+
+  .input {
     width: 100%;
     padding: 5px;
     border: none;
     outline: none;
     background-color: $white;
     transition: all 0.3s ease;
-    cursor: pointer;
-
-    &:hover {
-      color: $white;
-      background-color: $hover;
-    }
   }
 }

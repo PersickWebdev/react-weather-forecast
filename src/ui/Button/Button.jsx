@@ -3,20 +3,15 @@ import styles from './Button.module.scss';
 
 const Button = (props) => {
     return (
-        <button
-            className={`
-                ${styles['button']} 
-                ${props.temperature === 'isCold' ? styles['button-cold'] : ''}
-                ${props.temperature === 'isWarm' ? styles['button-warm'] : ''}
-                ${props.temperature === 'isHot' ? styles['button-hot'] : ''}
-            `}
-            onClick={props.action}
-            name={props.name}
-            type={props.type}
-        >
-            {props.children}
-            {props.name}
-        </button>
+        <div className={styles['button__container']}>
+            <input
+                className={styles['button']}
+                type='button'
+                name={props.name}
+                value={props.value}
+                onClick={props.action}
+            />
+        </div>
     );
 };
 

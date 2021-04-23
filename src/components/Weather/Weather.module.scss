@@ -1,0 +1,167 @@
+@import '../../scss/colors';
+@import '../../scss/mixins';
+
+// 1920
+// 1440
+// 1024
+// 768
+// 576
+// 375
+// 320
+
+.weather {
+  max-width: 500px;
+  width: 100%;
+  margin: 20px auto 0 auto;
+  padding: 10px;
+  background-color: $background;
+
+  .location-box {
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid $white;
+    color: $white;
+
+    .location__city {
+      display: block;
+      @include text-styles(16px, 600, uppercase, inherit);
+    }
+    .location__country {
+      display: block;
+      @include text-styles(26px, 600, uppercase, inherit);
+    }
+  }
+
+  .description-box {
+    padding: 10px;
+    text-align: center;
+    color: $black;
+    border-bottom: 1px solid $white;
+  }
+
+  .temperature-box {
+    padding: 10px;
+    border-bottom: 1px solid $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //flex-wrap: wrap;
+
+    .temperature__item:not(:last-child) {
+      margin-right: 5px;
+    }
+    .temperature__item {
+      max-width: 95px;
+      width: 100%;
+      padding: 3px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      background-color: $background;
+
+      .temperature__label {
+        @include text-styles(14px, 400, none, $black)
+      }
+      .temperature__value {
+        @include text-styles(20px, 700, none, $white)
+      }
+    }
+  }
+
+  .conditions-box {
+    padding: 10px;
+    border-bottom: 1px solid $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .condition__item:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    .condition__item {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      .condition__icon-box {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $background;
+        border-radius: 3px;
+        margin-bottom: 5px;
+
+        svg {
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      .condition__value {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $background;
+        border-radius: 3px;
+        @include text-styles(14px, 400, none, $white)
+      }
+    }
+  }
+
+  .sunrise-sunset-box {
+    padding: 10px;
+    border-bottom: 1px solid $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .sunrise-sunset__item:not(:last-child) {
+      margin-right: 5px;
+    }
+
+    .sunrise-sunset__item {
+      max-width: 100px;
+      width: 100%;
+      padding: 3px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+      background-color: $background;
+
+      .sunrise-sunset__label {
+        @include text-styles(14px, 400, none, $black)
+      }
+
+      .sunrise-sunset__value {
+        @include text-styles(20px, 700, none, $white)
+      }
+    }
+  }
+}
+
+@media (max-width: 426px) {
+  .weather {
+    .temperature-box {
+      justify-content: center;
+      flex-wrap: wrap;
+
+
+      .temperature__item {
+        max-width: 100px;
+        width: 100%;
+        margin: 5px;
+      }
+    }
+  }
+}

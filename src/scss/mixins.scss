@@ -1,6 +1,16 @@
-@mixin text-styles($fs, $fw, $tt, $col) {
-  font-size: $fs;
-  font-weight: $fw;
-  text-transform: $tt;
-  color: $col
+@mixin text-styles($font-size, $font-weight, $text-transform, $color) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  text-transform: $text-transform;
+  color: $color
+}
+
+@mixin container($max-width, $width, $margin, $padding, $display, $justify-content, $align-items) {
+  max-width: $max-width;
+  width: $width;
+  margin: $margin;
+  padding: $padding;
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
